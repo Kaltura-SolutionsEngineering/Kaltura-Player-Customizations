@@ -14,8 +14,43 @@ Now that you know the elements and classes, you'll also need to know where to co
 ![Player studio CSS configuration](resources/player-studio-css-config.png)
 After enabling the 'External CSS' checkbox, then enter the url where you are hosting your custom CSS, and Save.  NOTE: after saving the config, it can sometimes take up to 10 minutes before the CDN cache where your player is stored refreshes.
 
+## Notes on animation
+While the animation of the spinner is nice out-of-the-box, there may be times that you'd want to make some alterations, like slowing it down (or speeding it up).  The core of the animation is controlled by CSS via the "playkit-spinner" class.  The default values are:
+```css
+.playkit-spinner {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation: playkit-kaltura-spinner 2.5s infinite;
+    animation-duration: 2.5s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: playkit-kaltura-spinner;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+}
+```
+If you want to slow the spinner down, just override the "animation-duration" value and lengthen the duration (the longer the value, the slower the spin):
+```css
+.playkit-spinner {
+	animation-duration: 5s !important;
+}
+```
+Or conversely, if you want to speed it up, shorten the duration:
+```css
+.playkit-spinner {
+	animation-duration: 1.25s !important;
+}
+```
+You can change any of the values to effect how the animation renders.  For more info on CSS animation values, see https://developer.mozilla.org/en-US/docs/Web/CSS/animation.
+
 ## Examples
-Now that you understand the basic structure and how to configure, then we can go about customizing.  
+Now that you understand the basic structure, function,  and how to configure, then we can go about customizing.  
 ### Google Spinner Example
 Let's create an example where we set the spinner background to have the Google logo, and change the spinner dots to white.  To do this, we'll need to set the background of the parent wrapper `<div>` (remember, that's the one that does NOT spin).  Then we'll just change the color of the `<span>`s to white.  Your CSS will look like this:
 ```css
