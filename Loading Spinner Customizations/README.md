@@ -24,7 +24,7 @@ div.playkit-spinner > span {
 }
 
 div.playkit-spinner-container {
-    background-image: url(https://cfvod.kaltura.com/p/5954112/sp/595411200/raw/entry_id/1_ysx0ezhr/version/100001); /* change this url to whatever hosted image you want to use.  in this example, image is 64x64 px */
+    background-image: url(https://cfvod.kaltura.com/p/5954112/sp/595411200/raw/entry_id/1_ysx0ezhr/version/100001); /* change this url to whatever hosted image you want to use.  in this example, the image is 64x64 px */
     background-repeat: no-repeat;
     background-position: center;
 }  
@@ -32,7 +32,7 @@ div.playkit-spinner-container {
 This should render something like this:
 ![Google spinner example GIF](resources/google-spinner.gif)
 
-## McDonalds Spinner Example
+### McDonalds Spinner Example
 Let's take the Google example, and tweak it just a little to make the spinner dots alternating colors.  We'll just need to make use of the :nth-child selector, and add specifications for odd and even children (to alternate the colors):
 ```css
 div.playkit-spinner > span:nth-child(even) {
@@ -44,7 +44,7 @@ div.playkit-spinner > span:nth-child(odd) {
 }
 
 div.playkit-spinner-container {
-    background-image: url(https://cfvod.kaltura.com/p/5954112/sp/595411200/raw/entry_id/1_n3ixrm3t/version/100001); /* change this url to whatever hosted image you want to use.  in this example, image is 50x50 px */
+    background-image: url(https://cfvod.kaltura.com/p/5954112/sp/595411200/raw/entry_id/1_n3ixrm3t/version/100001); /* change this url to whatever hosted image you want to use.  in this example, the image is 50x50 px */
     background-repeat: no-repeat;
     background-position: center;
 } 
@@ -52,7 +52,42 @@ div.playkit-spinner-container {
 This should render something like this:
 ![McDonalds spinner example GIF](resources/mcdonalds-spinner.gif)
 
-## Caveats
+### Simple Image Loader Example
+Let's say that you don't want the spinner at all and would prefer to simply leverage your own image.  For this, we'll want to set your image as the background, and then just hide the spinner spans completely:
+```css
+div.playkit-spinner > span {
+    display: none; /* hide all the children spans */
+}
+
+div.playkit-spinner-container {
+    background-image: url(https://cfvod.kaltura.com/p/5954112/sp/595411200/raw/entry_id/1_8k73p2ae/version/100001); /* change this url to whatever hosted image you want to use.  in this example, the image is 100x100 px */
+    background-repeat: no-repeat;
+    background-position: center;
+}  
+```
+This should render something like this:
+![Static image loader example](resources/static-image-loader.png)
+
+### Rotating Image Loader Example
+The last example was nice and easy, but maybe you want a little more action.  Well, since the image we used can be easily rotated without impacting any readability, how about we just have it spin?  To make it easy, since the `<div>` with the "playkit-spinner" class already rotates out-of-the-box, then let's just take advantage of that:
+```css
+div.playkit-spinner > span {
+    display: none; /* hide all the children spans */
+}
+
+div.playkit-spinner {
+    background-image: url(https://cfvod.kaltura.com/p/5954112/sp/595411200/raw/entry_id/1_8k73p2ae/version/100001); /* change this url to whatever hosted image you want to use.  in this example, the image is 100x100 px */
+    background-repeat: no-repeat;
+    background-position: center;
+}  
+```	
+This should render something like this:
+![Rotating image loader example](resources/kaltura-logo-spinner.gif)
+
+## Wrapping Up
+Hopefully this guide and examples have given you some direction and inspiration on customizing the loading spinner of your Kaltura player.  
+
+## Caveats/Notes
 Things worth mentioning as you embark on this journey:
 * When using externally hosted CSS for customizations, the player tries to asynchronously load the CSS when it's rendering.  If the spinner renders before the CSS finishes loading, then you may see a short blip of the original spinner until the CSS is loaded and applied.
 
