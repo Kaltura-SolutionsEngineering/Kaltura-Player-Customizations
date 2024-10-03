@@ -2,7 +2,7 @@
 Sometimes, you may need to take advantage of the Kaltura Player API to perform certain actions, or retrieve certain information.  You can find the most current information on the Kaltura Player in Github at https://github.com/kaltura/kaltura-player-js, and specifically the Player API at https://github.com/kaltura/kaltura-player-js/blob/master/docs/api.md.  There are also some more descriptive overviews that can be found at https://developer.kaltura.com/player/web/getting-started-web.  But for the sake of this, we want to highlight a few specific workflows and give examples of how to achieve them.  Hopefully this serves as a resource to help you get started, and also think about things you might be able to leverage the Player API to do.
 
 ## Reference
-It probably goes without saying, but in leveraging the Player API, this goes beyond basic copy/paste embed codes and requires some ability to implement Javascript on the page(s) where you Player is so that you can take advantage of this.
+It probably goes without saying, but in leveraging the Player API, this goes beyond basic copy/paste embed codes and requires some ability to implement Javascript on the page(s) where your Player is so that you can take advantage of this.
 
 ## Examples
 With that out of the way, let's jump into trying a few things.
